@@ -28,6 +28,13 @@ function App() {
     ]);
   };
 
+    const changeEditTask = (id , valueInput) => {
+      setTodos([
+      ...todos.map((todo) => 
+        todo.id == id ? { ...todo, task : valueInput } : {...todo}
+      ),
+      ]);
+    };
   
   return (
     <div class="bg-fixed bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 flex justify-center h-screen relative">
@@ -46,6 +53,9 @@ function App() {
                   toggleTask={handleToggle}
                   removeTask={removeTask}
                   key={todo.id}
+                  changeEditTask={changeEditTask}
+                
+
                 />
               </div>
             );
