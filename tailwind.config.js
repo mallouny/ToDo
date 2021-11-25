@@ -1,11 +1,11 @@
 module.exports = {
- // purge: ['./src/components/Header', './public/index.html'],
+  // purge: ['./src/components/Header', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   variants: {
     extend: {
-      backgroundColor: ['checked'],
-      borderColor: ['checked'],
-    }
+      backgroundColor: ["checked"],
+      borderColor: ["checked"],
+    },
   },
   theme: {
     extend: {},
@@ -14,4 +14,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};

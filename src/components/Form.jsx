@@ -20,7 +20,7 @@ function Form({ addTask }) {
   return (
     <form
       onSubmit={handleSubmit}
-      class="absolute  flex justify-items-center justify-center mt-16 ml-24 p-4 w-auto bg-white rounded-xl shadow-md"
+      class="absolute  flex justify-items-center mt-16 ml-24 p-4 w-auto bg-white rounded-xl shadow-md"
     >
       <input
         class="form-tick appearance-none h-8 w-96  rounded-md checked:bg-white checked:border-transparent focus:outline-none"
