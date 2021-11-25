@@ -59,6 +59,7 @@ function App() {
         <div class="mt-40  flex-col justify-center items-center flex ">
           {todos.map((todo) => {
             return (
+
               <div class=" mt-4 h-16 w-4/5 bg-gray-200 bg-opacity-60 shadow-md rounded-3xl">
                 <ToDo
                   todo={todo}
@@ -74,6 +75,6 @@ function App() {
       </div>
     </div>
   );
-}
+}   
 
 export default App;
