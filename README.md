@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+     https://upload.wikimedia.org/wikipedia/commons/6/67/Microsoft_To-Do_icon.png   
 
 ## Available Scripts
 
