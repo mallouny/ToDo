@@ -1,4 +1,4 @@
-import { host } from "../../components/host";
+import { host } from "../../components/constants/host";
 
 export const POST_TASK = "POST_TASK";
 export const SORTED_TASKS = "SORTED_TASKS";

@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 import ToDo from "./components/ToDo";
 import Form from "./components/Form";
-import tasksReducer from "../src/redux/reducers/taskRedusers";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchTasks,
@@ -20,13 +19,15 @@ function App() {
 
   const { todos } = useSelector((state) => state.tasksReducer);
 
-  const handleAddTask = (userInput) => {
-    if (userInput) {
+  const handleAddTask = (userInput, descriptionInput) => {
+    if (userInput.length < 5 && descriptionInput < 5) {
+      alert(" Min. Characters =  5");
+    } else {
       const newItem = {
         id: Math.random().toString(36).substr(2, 9),
         title: userInput,
         status: 1,
-        description: "mallouny",
+        description: descriptionInput,
       };
       dispatch(addTask(newItem));
     }
@@ -36,16 +37,32 @@ function App() {
     dispatch(deleteTask(id));
   };
 
-  const changeEditTask = (id, valueInput) => {
-    dispatch(
-      changeTask({
-        id: id,
-        title: valueInput,
-        status: 1,
-        description: "mallouny",
-      })
-    );
+  const changeEditTask = (id, valueInput, flag, todo) => {
+    
+    if (flag) {
+      dispatch(
+        changeTask({
+          id: id,
+          title: todo.title,
+          status: 1,
+          description: valueInput,
+        })
+      );
+    } 
+    else {
+      dispatch(
+        changeTask({
+          id: id,
+          title: valueInput,
+          status: 1,
+          description: todo.description,
+        })
+      );
+    }
   };
+  
+  
+  
 
   return (
     <div class="bg-fixed bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 flex justify-center h-screen relative">
@@ -56,17 +73,17 @@ function App() {
 
         <Form addTask={handleAddTask} />
 
-        <div class="mt-40  flex-col justify-center items-center flex ">
+        <div class="mt-52  flex-col justify-center items-center flex ">
           {todos.map((todo) => {
             return (
-
               <div class=" mt-4 h-16 w-4/5 bg-gray-200 bg-opacity-60 shadow-md rounded-3xl">
                 <ToDo
                   todo={todo}
                   removeTask={removeTask}
-                  key={todo.id}
+                  key={todo.title}
                   changeEditTask={changeEditTask}
                   todos={todos}
+
                 />
               </div>
             );
@@ -75,6 +92,6 @@ function App() {
       </div>
     </div>
   );
-}   
+}
 
 export default App;
